@@ -1,0 +1,136 @@
+---
+layout: layouts/base.njk
+section: project
+---
+
+<article>
+
+    {% if tags %}
+    <p class="tags">
+    {% for tag in tags %}
+      {%- if tag != "project" -%}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
+      {%- endif -%}
+    {% endfor %}
+    </p>
+  {% endif %}
+
+  <h1>{{ title }}</h1>
+  <p>
+    <small>
+      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+    </small>
+  </p>
+
+  <div class="gallery">
+
+    {% if images %}
+      <div class="project-images">
+      {% for image in images %}
+        <img src="{{ image }}" class="image">
+      {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+
+  {{ layoutContent | safe }}
+
+</article>
+
+{% set previousProject = collections.project | getPreviousCollectionItem(page) %}
+{% set nextProject = collections.project | getNextCollectionItem(page) %}
+
+<div class="navigation">
+
+<h3>More projects</h3>
+
+{% if previousProject %}
+
+  <article{% if previousProject.url == url %} data-current="current item"{% endif %} class="project previousProject">
+
+      {% if previousProject.data.thumbnail %}
+        <a href="{{ previousProject.url | url }}">
+          <img src={{ previousProject.data.thumbnail }}>
+        </a>
+      {% endif %}
+
+      <a href="{{ previousProject.url | url }}" class="full-link"></a>
+
+			<h3 class="title">
+				<a href="{{ previousProject.url | url }}">
+					{% if previousProject.data.title %}
+						{{ previousProject.data.title }}
+					{% else %}
+						Untitled
+					{% endif %}
+				</a>
+			</h3>
+
+			<p class="date">
+				<time datetime="{{ previousProject.date | machineDate }}">
+					<small>{{ previousProject.date | readableDate }}</small>
+				</time>
+			</p>
+
+			{% if previousProject.data.tags %}
+				<p class="tags">
+					{% for tag in previousProject.data.tags %}
+		  			{%- if tag != "project" -%}
+		  				{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+		  			<a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
+		  			{%- endif -%}
+					{% endfor %}
+				</p>
+			{% endif %}
+
+		</article>
+
+{% endif %}
+
+
+{% if nextProject %}
+
+  <article{% if nextProject.url == url %} data-current="current item"{% endif %} class="project nextProject">
+
+      {% if nextProject.data.thumbnail %}
+        <a href="{{ nextProject.url | url }}">
+          <img src={{ nextProject.data.thumbnail }}>
+        </a>
+      {% endif %}
+
+      <a href="{{ nextProject.url | url }}" class="full-link"></a>
+
+			<h3 class="title">
+				<a href="{{ nextProject.url | url }}">
+					{% if nextProject.data.title %}
+						{{ nextProject.data.title }}
+					{% else %}
+						Untitled
+					{% endif %}
+				</a>
+			</h3>
+
+			<p class="date">
+				<time datetime="{{ nextProject.date | machineDate }}">
+					<small>{{ nextProject.date | readableDate }}</small>
+				</time>
+			</p>
+
+			{% if nextProject.data.tags %}
+				<p class="tags">
+					{% for tag in nextProject.data.tags %}
+		  			{%- if tag != "project" -%}
+		  				{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+		  			<a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
+		  			{%- endif -%}
+					{% endfor %}
+				</p>
+			{% endif %}
+
+		</article>
+
+{% endif %}
+
+</div>

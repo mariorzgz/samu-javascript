@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+	--primary: #0e0ea0;
+	--secondary: #ff0000;
+	--background: #f2f2f2;
+
+  --transition: .2s ease;
+  --maxWidth: 1360px;
+
+  --pad: 2.5rem;
+  --gut: 2.8rem;
+  --gutneg: -2.8rem;
+
+}
+
+@media only screen and (min-width: 2351px){
+  :root{
+    --pad: 6rem;
+    --gut: 3.2rem;
+    --gutneg: -3.2rem;
+  }
+}
+
+/* Basics */
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Capriola', sans-serif;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+a{
+  text-decoration: none;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+a:hover{
+  color: var(--secondary);
+}
+
+em{
+  font-style: normal;
+}
+
+body {
+	background-color: var(--background);
+}
+
+/* Header */
+
+header{
+  width: 100%;
+}
+
+.light{
+  color: var(--background) !important;
+}
+
+.dark{
+  color: var(--primary) !important;
+}
+
+header nav ul{
+  list-style-type: none;
+  margin: 0;
+}
+
+header nav ul li,
+header em{
+  z-index: 10;
+  position: fixed;
+  top: var(--pad);
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav ul li:first-child{
+  left: var(--pad);
+}
+
+header nav ul li:last-child{
+  right: var(--pad);
+}
+
+header em{
+  margin-left: 50%;
+  transform: translateX(-50%)
+}
+
+header em a{
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+header nav ul li a{
+  font-size: 1.6rem;
+}
+
+html[data-current=home] header em a,
+html[data-current=home] header nav ul li a{
+  color: var(--background);
+}
+
+html:not([data-current=home]) header em a,
+html:not([data-current=home]) header nav ul li a{
+  color: var(--primary);
+}
+
+header nav ul li a{
+  font-size: 1.6rem;
+  color: var(--background);
+}
+
+header nav li a[href]:not(:hover) {
+	text-decoration: none;
+}
+
+main:not(.home){
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 8em 20px 0;
+}
+
+/* Home */
+
+main.home{
+
+}
+
+main.home .hero{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.home .hero h2 p{
+  font-size: 6rem;
+  color: var(--background);
+}
+
+.projects-list{
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 8em 20px 0;
+}
+
+.projects-list .project,
+.navigation .project{
+  position: relative;
+  height: 450px;
+  flex: 0 0 auto;
+  margin: 0 auto;
+}
+
+.projects-list .project a.full-link,
+.navigation .project a.full-link{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.projects-list .project p.date,
+.projects-list .project p.tags,
+.navigation .project p.date,
+.navigation .project p.tags{
+  position: absolute;
+  top: 10px;
+  margin: 0;
+  opacity: 0;
+}
+
+.projects-list .project p.date,
+.navigation .project p.date{
+  right: 10px;
+}
+
+.projects-list .project p.tags,
+.navigation .project p.tags{
+  left: 10px;
+  z-index: 3;
+}
+
+.projects-list .project p.tags .tag{
+  background: var(--background);
+}
+
+.projects-list .project p.tags .tag,
+.navigation .project p.tags .tag{
+  border-radius: 25px;
+  padding: 0 10px;
+  z-index: 3;
+}
+
+.projects-list .project h3,
+.projects-list .project::before,
+.navigation .project h3,
+.navigation .project::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.projects-list .project::before,
+.navigation .project::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--secondary);
+  transition: var(--transition);
+  opacity: 0;
+}
+
+.projects-list .project:hover p,
+.projects-list .project:hover::before,
+.navigation .project:hover p,
+.navigation .project:hover::before{
+  opacity: 1;
+}
+
+.projects-list .project:hover h3,
+.navigation .project:hover h3{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin: 0;
+  opacity: 1;
+}
+
+.projects-list .project a img,
+.navigation .project a img{
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Project page */
+
+.project article p.tags .tag{
+  background: var(--secondary);
+  color: var(--background);
+  border-radius: 25px;
+  padding: 0 10px;
+  z-index: 3;
+}
+
+.project article .gallery .project-images{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: var(--maxWidth);
+  overflow-x: scroll;
+  gap: 10px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding: 20px 0;
+}
+.project article .gallery .project-images::-webkit-scrollbar {
+  width: 20px;
+  margin: 10px;
+}
+
+.project article .gallery .project-images::-webkit-scrollbar-track {
+  background-color: var(--primary);
+
+}
+
+.project article .gallery .project-images::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+}
+
+.project article .gallery .project-images img{
+  max-width: 500px;
+}
+
+.project .navigation{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.project .navigation h3{
+  width: 100%;
+}
+
+.project .navigation article{
+}
+
+/* About */
+
+/* */
+
+/* Contact Form */
+
+form {
+  display: grid;
+	padding: 2em 0;
+}
+
+form label {
+  display: none;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+	font-size: 1rem;
+}
+
+input,
+textarea {
+	border: 1px solid black;
+}
+
+button {
+	border: 1px solid var(--primary);
+	background-color: var(--primary);
+	color: var(--secondary);
+	cursor: pointer;
+}
+
+/* Footer */
+
+footer{
+  width: 100vw;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--primary);
+  color: var(--background);
+  margin-top: 10px;
+}
+
+footer small{
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
+
+@media screen and (min-width:768px) {
+	:root {
+		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width: 767px) {
+  main{
+    padding: 0;
+    width: 90%;
+  }
+  .navigation .project,
+  .projects-list .project{
+    max-width: 300px;
+    height: auto;
+  }
+
+  .navigation .project a img, .projects-list .project a img{
+    width: 100%;
+  }
+}

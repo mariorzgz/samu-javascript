@@ -1,0 +1,44 @@
+<section class="projects-list">
+
+	{% for project in projectslist | reverse %}
+
+		<article{% if project.url == url %} data-current="current item"{% endif %} class="project">
+
+      {% if project.data.thumbnail %}
+        <a href="{{ project.url | url }}">
+          <img src={{ project.data.thumbnail }}>
+        </a>
+      {% endif %}
+
+      <a href="{{ project.url | url }}" class="full-link"></a>
+
+			<h3 class="title">
+				<a href="{{ project.url | url }}">
+					{% if project.data.title %}
+						{{ project.data.title }}
+					{% else %}
+						Untitled
+					{% endif %}
+				</a>
+			</h3>
+
+			<p class="date">
+				<time datetime="{{ project.date | machineDate }}">
+					<small>{{ project.date | readableDate }}</small>
+				</time>
+			</p>
+
+			{% if project.data.tags %}
+				<p class="tags">
+					{% for tag in project.data.tags %}
+		  			{%- if tag != "project" -%}
+		  				{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+		  			<a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }} </a>
+		  			{%- endif -%}
+					{% endfor %}
+				</p>
+			{% endif %}
+
+		</article>
+	{% endfor %}
+</section>

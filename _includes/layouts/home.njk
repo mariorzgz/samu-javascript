@@ -1,0 +1,8 @@
+---
+layout: layouts/base.njk
+section: home
+---
+{% include "components/hero.njk" %}
+
+{% set projectslist = collections.project %}
+{% include "components/projectslist.njk" %}

@@ -1,0 +1,36 @@
+{
+  "name": "portfolio",
+  "version": "1.0.3",
+  "description": "Illustrator",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "watch": "npx @11ty/eleventy --watch",
+    "serve": "npx @11ty/eleventy --serve",
+    "debug": "DEBUG=* npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariorzgz/eleventy-netlify-boilerplate"
+  },
+  "author": {
+    "name": "Mario",
+    "url": "https://github.com/mariorzgz"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariorzgz/eleventy-netlify-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mariorzgz/eleventy-netlify-boilerplate",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "luxon": "^2.3.0",
+    "markdown-it": "^12.3.2",
+    "markdown-it-anchor": "^8.4.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^0.3.2",
+    "clean-css": "^5.2.4",
+    "html-minifier": "^4.0.0",
+    "uglify-js": "^3.15.1"
+  }
+}
