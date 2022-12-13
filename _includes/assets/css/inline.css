@@ -49,6 +49,7 @@ em{
 
 body {
 	background-color: var(--background);
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -151,24 +152,42 @@ main.home .hero h2 p{
 }
 
 .projects-list{
-  display: flex;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  /* display: flex;
   gap: 20px;
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
+
   min-height: 100vh;
-  padding: 8em 20px 0;
+  padding: 8em 20px 0;*/
 }
 
 .projects-list .project,
 .navigation .project{
+  width: 100%;
   position: relative;
-  height: 450px;
+  /*height: 450px;*/
+  /*height: 100%;*/
   flex: 0 0 auto;
   margin: 0 auto;
+  padding: 10px;
 }
+
+.projects-list .project a{
+  max-width: 100%;
+  width: 100%;
+}
+
+.projects-list .project a img,
+.navigation .project a img{
+  max-width: 100%;
+  width: 100%;
+  /*height: 450px;*/
+  object-fit: contain;
+}
+
 
 .projects-list .project a.full-link,
 .navigation .project a.full-link{
@@ -178,6 +197,7 @@ main.home .hero h2 p{
   z-index: 2;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   background: transparent;
 }
 
@@ -250,12 +270,6 @@ main.home .hero h2 p{
   z-index: 1;
   margin: 0;
   opacity: 1;
-}
-
-.projects-list .project a img,
-.navigation .project a img{
-  height: 100%;
-  object-fit: contain;
 }
 
 /* Project page */
@@ -365,24 +379,34 @@ footer small{
   margin: 0 auto;
 }
 
-@media screen and (min-width:768px) {
+@media (min-width:750px) {
 	:root {
 		font-size: 1.1rem;
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media (max-width: 750px) {
   main{
     padding: 0;
     width: 90%;
   }
+
   .navigation .project,
   .projects-list .project{
-    max-width: 300px;
-    height: auto;
-  }
-
-  .navigation .project a img, .projects-list .project a img{
     width: 100%;
+  }
+}
+
+@media (min-width:750px) and (max-width: 950px) {
+  .navigation .project,
+  .projects-list .project{
+    width: 50%;
+  }
+}
+
+@media (min-width:950px) {
+  .navigation .project,
+  .projects-list .project{
+    width: 33%;
   }
 }
