@@ -1,8 +1,8 @@
-<section class="projects-list">
+<section class="projects-list" data-masonry='{ "itemSelector": ".grid-item", "fitWidth": "true" }'>
 
 	{% for project in projectslist | reverse %}
 
-		<article{% if project.url == url %} data-current="current item"{% endif %} class="project">
+		<article{% if project.url == url %} data-current="current item"{% endif %} class="project grid-item">
 
       {% if project.data.thumbnail %}
         <a href="{{ project.url | url }}">
