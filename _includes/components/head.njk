@@ -3,13 +3,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ renderData.title or title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" crossorigin="anonymous"></script>
+
   {% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
+
   <style>{{ css | cssmin | safe }}</style>
+
   {% set js %}
     {% include "assets/js/inline.js" %}
   {% endset %}
+
   <script>{{ js | jsmin | safe }}</script>
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" type="module"></script>
+
+  <script type="module" src="static/js/app.js"></script>
+
 </head>

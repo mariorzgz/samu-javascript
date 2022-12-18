@@ -8,18 +8,10 @@
   --transition: .2s ease;
   --maxWidth: 1360px;
 
-  --pad: 2.5rem;
-  --gut: 2.8rem;
+  --pad: 1rem;
+  --gut: 1rem;
   --gutneg: -2.8rem;
 
-}
-
-@media only screen and (min-width: 2351px){
-  :root{
-    --pad: 6rem;
-    --gut: 3.2rem;
-    --gutneg: -3.2rem;
-  }
 }
 
 /* Basics */
@@ -96,12 +88,8 @@ header em{
 }
 
 header em a{
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 600;
-}
-
-header nav ul li a{
-  font-size: 1.6rem;
 }
 
 html[data-current=home] header em a,
@@ -115,7 +103,7 @@ html:not([data-current=home]) header nav ul li a{
 }
 
 header nav ul li a{
-  font-size: 1.6rem;
+  font-size: .8rem;
   color: var(--background);
 }
 
@@ -146,8 +134,12 @@ main.home .hero{
   justify-content: center;
 }
 
+main.home .hero h2{
+  padding: 0 2%;
+}
+
 main.home .hero h2 p{
-  font-size: 6rem;
+  font-size: 1rem;
   color: var(--background);
 }
 
@@ -166,13 +158,13 @@ main.home .hero h2 p{
 
 .projects-list .project,
 .navigation .project{
-  width: 100%;
+  width: 96%;
   position: relative;
   /*height: 450px;*/
   /*height: 100%;*/
   flex: 0 0 auto;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 0;
+  padding: 2% 2% 0;
 }
 
 .projects-list .project a{
@@ -380,33 +372,44 @@ footer small{
 }
 
 @media (min-width:750px) {
-	:root {
-		font-size: 1.1rem;
-	}
-}
-
-@media (max-width: 750px) {
-  main{
-    padding: 0;
-    width: 90%;
+  :root{
+    --pad: 2.5rem;
+    --gut: 2.8rem;
   }
 
   .navigation .project,
   .projects-list .project{
-    width: 100%;
+    width: 46%;
+    padding: 2% 2% 0;
   }
-}
 
-@media (min-width:750px) and (max-width: 950px) {
-  .navigation .project,
-  .projects-list .project{
-    width: 50%;
+  main.home .hero h2 p{
+    font-size: 3rem;
+  }
+
+  header nav ul li a{
+    font-size: 1.6rem;
+  }
+
+  header em a{
+    font-size: 1.6rem;
+    font-weight: 600;
   }
 }
 
 @media (min-width:950px) {
   .navigation .project,
   .projects-list .project{
-    width: 33%;
+    width: 29%;
+    padding: 2% 2% 0;
+  }
+}
+
+
+@media (min-width: 2351px){
+  :root{
+    --pad: 6rem;
+    --gut: 3.2rem;
+    --gutneg: -3.2rem;
   }
 }
