@@ -3,7 +3,7 @@
 
 	{% include "components/head.njk" %}
 
-	<body>
+	<body class="{{ section }} {% for tag in tags %}{%if tag != section%}{{ tag }} {% endif %}{% endfor %}">
 
 		<header>
 			<em>

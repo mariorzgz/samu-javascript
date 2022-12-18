@@ -9,5 +9,6 @@ eleventyNavigation:
   visible: false
 
 ---
-
 this is samu gambín :)
+
+illustrator and animator

@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Capriola&family=Roboto:wght@300;400;700&display=swap');
 
+@font-face {
+  font-family: "karrik";
+  src: url("../static/fonts/Karrik-Regular.woff") format("woff");
+}
+
 :root {
 	--primary: #0e0ea0;
+  --primary-lighter: #4f4f9e;
+  --primary-darker: #090954;
 	--secondary: #ff0000;
+  --secondary-lighter: #ff8080;
+  --secondary-darker: #7f0000;
 	--background: #f2f2f2;
 
   --transition: .2s ease;
@@ -88,17 +97,20 @@ header em{
 }
 
 header em a{
+  font-family: karrik;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: normal;
 }
 
-html[data-current=home] header em a,
-html[data-current=home] header nav ul li a{
+body.home header em a,
+body.home header nav ul li a,
+body.about header em a,
+body.about header nav ul li a{
   color: var(--background);
 }
 
-html:not([data-current=home]) header em a,
-html:not([data-current=home]) header nav ul li a{
+body header em a,
+body header nav ul li a{
   color: var(--primary);
 }
 
@@ -111,12 +123,14 @@ header nav li a[href]:not(:hover) {
 	text-decoration: none;
 }
 
-main:not(.home){
+main{
   width: 100%;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
   min-height: 100vh;
-  padding: 8em 20px 0;
+}
+
+main > h1{
+  padding: 2em 0 0;
+  margin: 0;
 }
 
 /* Home */
@@ -136,6 +150,7 @@ main.home .hero{
 
 main.home .hero h2{
   padding: 0 2%;
+  text-align: center;
 }
 
 main.home .hero h2 p{
@@ -146,37 +161,27 @@ main.home .hero h2 p{
 .projects-list{
   max-width: var(--maxWidth);
   margin: 0 auto;
-  /* display: flex;
-  gap: 20px;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 100%;
-
-  min-height: 100vh;
-  padding: 8em 20px 0;*/
 }
 
 .projects-list .project,
 .navigation .project{
   width: 96%;
   position: relative;
-  /*height: 450px;*/
-  /*height: 100%;*/
   flex: 0 0 auto;
-  margin: 0;
-  padding: 2% 2% 0;
+  margin: 2% 2% 0;
 }
 
 .projects-list .project a{
   max-width: 100%;
   width: 100%;
+  color: var(--background);
+  text-align: center;
 }
 
 .projects-list .project a img,
 .navigation .project a img{
   max-width: 100%;
   width: 100%;
-  /*height: 450px;*/
   object-fit: contain;
 }
 
@@ -201,6 +206,7 @@ main.home .hero h2 p{
   top: 10px;
   margin: 0;
   opacity: 0;
+  color: var(--background);
 }
 
 .projects-list .project p.date,
@@ -240,7 +246,7 @@ main.home .hero h2 p{
   content: '';
   width: 100%;
   height: 100%;
-  background: var(--secondary);
+  background: var(--secondary-lighter);
   transition: var(--transition);
   opacity: 0;
 }
@@ -318,13 +324,43 @@ main.home .hero h2 p{
 
 /* About */
 
+body.about{
+  background: var(--primary);
+}
+
+body.about main p{
+  color: var(--background);
+}
+
+body.about footer{
+  background-color: var(--background);
+  color: var(--primary-lighter);
+}
+
 /* */
+
+main:not(.home){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main.page p{
+  width: 90%;
+  text-align: center;
+}
 
 /* Contact Form */
 
+body.contact main > p {
+  padding-top: 6em;
+}
+
 form {
+  padding: 2em 0 4em 0;
   display: grid;
-	padding: 2em 0;
+  width: 90%;
 }
 
 form label {
@@ -334,7 +370,6 @@ form label {
 input,
 textarea,
 button {
-  width: 100%;
   padding: 1em;
   margin-bottom: 1em;
 	font-size: 1rem;
@@ -361,12 +396,13 @@ footer{
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: var(--primary);
+  background-color: var(--primary-lighter);
   color: var(--background);
   margin-top: 10px;
 }
 
 footer small{
+  font-size: .5rem;
   max-width: var(--maxWidth);
   margin: 0 auto;
 }
@@ -380,7 +416,6 @@ footer small{
   .navigation .project,
   .projects-list .project{
     width: 46%;
-    padding: 2% 2% 0;
   }
 
   main.home .hero h2 p{
@@ -395,13 +430,29 @@ footer small{
     font-size: 1.6rem;
     font-weight: 600;
   }
+
+  main{
+    min-height: 100vh;
+  }
+
+  main.page p{
+    width: 66%;
+  }
+
+  main > h1{
+    padding: 4em 0 0;
+  }
+
+  form{
+    width: 66%;
+  }
+
 }
 
 @media (min-width:950px) {
   .navigation .project,
   .projects-list .project{
     width: 29%;
-    padding: 2% 2% 0;
   }
 }
 

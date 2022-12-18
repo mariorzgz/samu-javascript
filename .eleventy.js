@@ -59,6 +59,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin/");
   eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
   eleventyConfig.addPassthroughCopy("static/js/app.js");
+  eleventyConfig.addPassthroughCopy("static/fonts/Karrik-Regular.woff");
+
 
   /* Markdown Plugins */
   let markdownIt = require("markdown-it");
