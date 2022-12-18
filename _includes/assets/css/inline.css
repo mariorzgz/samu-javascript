@@ -328,6 +328,10 @@ body.about{
   background: var(--primary);
 }
 
+body.about h1{
+  display: none;
+}
+
 body.about main p{
   color: var(--background);
 }
