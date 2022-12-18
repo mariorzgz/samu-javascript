@@ -272,6 +272,10 @@ main.home .hero h2 p{
 
 /* Project page */
 
+main.project{
+  margin-top: 4em;
+}
+
 .project article p.tags .tag{
   background: var(--secondary);
   color: var(--background);
@@ -288,7 +292,7 @@ main.home .hero h2 p{
   overflow-x: scroll;
   gap: 10px;
   flex-wrap: nowrap;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px 0;
 }
 .project article .gallery .project-images::-webkit-scrollbar {
@@ -306,7 +310,7 @@ main.home .hero h2 p{
 }
 
 .project article .gallery .project-images img{
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .project .navigation{
@@ -449,6 +453,10 @@ footer small{
 
   form{
     width: 66%;
+  }
+
+  .project article .gallery .project-images img{
+    max-width: 500px;
   }
 
 }
