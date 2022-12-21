@@ -1,13 +1,15 @@
 ---
 title: About us
-metaDescription: This is a sample meta description. If one is not present in your page/post's front matter, the default metadata.desciption will be used instead.
+metaDescription: This is a sample meta description. If one is not present in
+  your page/post's front matter, the default metadata.desciption will be used
+  instead.
 date: 2017-01-01T00:00:00.000Z
+tags:
+  - about
 permalink: /about/index.html
 eleventyNavigation:
   key: About
   order: 1
   visible: true
-tags:
-  - about
 ---
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.
+M﻿y name is Samu Gambin and i am very cute.
