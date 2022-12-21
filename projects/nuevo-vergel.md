@@ -20,8 +20,4 @@ images:
   - https://ucarecdn.com/baced541-8fff-4dc0-8411-8d6da484be23/
 thumbnail: https://ucarecdn.com/ecd1d565-fce8-47bd-9910-39470ddb8b3b/
 ---
-<!--StartFragment-->
-
 Nuevo Vergel es un proyecto personal conceptual de Ilustración publicitaria que se centra en la intervención del espacio urbano. ¿Qué es “Nuevo Vergel”? Es una VR que te permite sumergirte e interactuar en un entorno virtual a través de una simulación. Este entornoe está basado en el Edén, donde el usuario será llevado a un paraíso inmortal y puro, la nueva Edad de Oro del hombre. El objetivo de este proyecto es la divulgación del Nuevo Vergel, hacer ruido en la ciudad y generar un boca a boca. Actualmente lo que se vende es humo (inexistente), pero mi intención con este proyecto es que acabe siendo algo real, crear un colectivo de artistas, generar diferentes eventos con la temática del Nuevo Vergel y producir una VR con todas las características del Paraíso Terrenal.
-
-<!--EndFragment-->
