@@ -18,19 +18,20 @@ section: project
 
   <div class="content">
 
-    {% if tags %}
-    <p class="tags">
+  {#
+  {% if tags.length != 0 %}
+    <div class="tags">
       {% for tag in tags %}
         {%- if tag != "project" -%}
           {% set tagUrl %}/tags/{{ tag }}/{% endset %}
           <a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
         {%- endif -%}
       {% endfor %}
-    </p>
+    </div>
     {% endif %}
+  #}
 
-
-    <h1>{{ title }}</h1>
+    <h1 class="project-title">{{ title }}</h1>
 
     <p>
       <small>
@@ -39,6 +40,10 @@ section: project
     </p>
 
     {{ layoutContent | safe }}
+
+        {% if link %}
+      <a href="{{ link }}" class="project-link">Visit project</a>
+    {% endif %}
 
   </div>
 
