@@ -1,4 +1,9 @@
 @import './molecules/header.scss';
+@import './molecules/projectList.scss';
+@import './molecules/footer.scss';
+@import './layouts/home.scss';
+@import './layouts/projectPage.scss';
+
 @import url('https://fonts.googleapis.com/css2?family=Capriola&family=Roboto:wght@300;400;700&display=swap');
 
 @font-face {
@@ -18,9 +23,9 @@
   --transition: .2s ease;
   --maxWidth: 1360px;
 
-  --pad: 1rem;
-  --gut: 1rem;
-  --gutneg: -2.8rem;
+  --pad: 20px;
+  --gut: 20px;
+  --gutneg: -20px;
 
 }
 
@@ -97,192 +102,8 @@ main.home{
 
 }
 
-main.home .hero{
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main.home .hero h2{
-  padding: 0 2%;
-  text-align: center;
-}
-
-main.home .hero h2 p{
-  font-size: 1rem;
-  color: var(--background);
-}
-
-.projects-list{
-  max-width: var(--maxWidth);
-  margin: 0 auto;
-}
-
-.projects-list .project,
-.navigation .project{
-  width: 96%;
-  position: relative;
-  flex: 0 0 auto;
-  margin: 2% 2% 0;
-}
-
-.projects-list .project a{
-  max-width: 100%;
-  width: 100%;
-  color: var(--background);
-  text-align: center;
-}
-
-.projects-list .project a img,
-.navigation .project a img{
-  max-width: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-
-
-.projects-list .project a.full-link,
-.navigation .project a.full-link{
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  background: transparent;
-}
-
-.projects-list .project p.date,
-.projects-list .project p.tags,
-.navigation .project p.date,
-.navigation .project p.tags{
-  position: absolute;
-  top: 10px;
-  margin: 0;
-  opacity: 0;
-  color: var(--background);
-}
-
-.projects-list .project p.date,
-.navigation .project p.date{
-  right: 10px;
-}
-
-.projects-list .project p.tags,
-.navigation .project p.tags{
-  left: 10px;
-  z-index: 3;
-}
-
-.projects-list .project p.tags .tag{
-  background: var(--background);
-}
-
-.projects-list .project p.tags .tag,
-.navigation .project p.tags .tag{
-  border-radius: 25px;
-  padding: 0 10px;
-  z-index: 3;
-}
-
-.projects-list .project h3,
-.projects-list .project::before,
-.navigation .project h3,
-.navigation .project::before{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.projects-list .project::before,
-.navigation .project::before{
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: var(--secondary-lighter);
-  transition: var(--transition);
-  opacity: 0;
-}
-
-.projects-list .project:hover p,
-.projects-list .project:hover::before,
-.navigation .project:hover p,
-.navigation .project:hover::before{
-  opacity: 1;
-}
-
-.projects-list .project:hover h3,
-.navigation .project:hover h3{
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  margin: 0;
-  opacity: 1;
-}
 
 /* Project page */
-
-main.project{
-  margin-top: 4em;
-}
-
-.project article p.tags .tag{
-  background: var(--secondary);
-  color: var(--background);
-  border-radius: 25px;
-  padding: 0 10px;
-  z-index: 3;
-}
-
-.project article .gallery .project-images{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  max-width: var(--maxWidth);
-  overflow-x: scroll;
-  gap: 10px;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  padding: 20px 0;
-}
-.project article .gallery .project-images::-webkit-scrollbar {
-  width: 20px;
-  margin: 10px;
-}
-
-.project article .gallery .project-images::-webkit-scrollbar-track {
-  background-color: var(--primary);
-
-}
-
-.project article .gallery .project-images::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
-}
-
-.project article .gallery .project-images img{
-  max-width: 300px;
-}
-
-.project .navigation{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.project .navigation h3{
-  width: 100%;
-}
-
-.project .navigation article{
-}
 
 /* About */
 
@@ -355,35 +176,13 @@ button {
 
 /* Footer */
 
-footer{
-  width: 100vw;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: var(--primary-lighter);
-  color: var(--background);
-  margin-top: 10px;
-}
 
-footer small{
-  font-size: .5rem;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
-}
 
 @media (min-width:750px) {
   :root{
-    --pad: 2.5rem;
-    --gut: 2.8rem;
+    --pad: 40px;
+    --gut: 40px;
   }
-
-  .navigation .project,
-  .projects-list .project{
-    width: 46%;
-  }
-
   main.home .hero h2 p{
     font-size: 3rem;
   }
@@ -403,25 +202,12 @@ footer small{
   form{
     width: 66%;
   }
-
-  .project article .gallery .project-images img{
-    max-width: 500px;
-  }
-
 }
-
-@media (min-width:950px) {
-  .navigation .project,
-  .projects-list .project{
-    width: 29%;
-  }
-}
-
 
 @media (min-width: 2351px){
   :root{
-    --pad: 6rem;
-    --gut: 3.2rem;
-    --gutneg: -3.2rem;
+    --pad: 50px;
+    --gut: 50px;
+    --gutneg: -50px;
   }
 }

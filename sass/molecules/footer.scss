@@ -1,0 +1,17 @@
+footer{
+  width: 100vw;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--primary-lighter);
+  color: var(--background);
+  margin-top: 10px;
+
+  small {
+    font-size: .5rem;
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+  }
+}

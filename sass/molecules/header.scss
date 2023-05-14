@@ -1,9 +1,10 @@
 header {
+  background: var(--background);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: fixed;
-  margin-top: var(--pad);
+  padding: var(--pad) 0;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -23,6 +24,7 @@ header {
 
   nav {
     position: absolute;
+    padding-top: var(--pad);
     top: 0;
     left: 0;
     width: 100%;
@@ -43,6 +45,8 @@ header {
 
 @media (min-width:750px) {
   header {
+    background: transparent;
+
     .logo-container {
       a {
         font-size: 1.6rem;

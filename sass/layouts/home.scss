@@ -1,0 +1,42 @@
+body {
+  &.home {
+    header {
+      #logo {
+        color: var(--background);
+      }
+    }
+
+    main {
+      &.home {
+        .hero {
+          width: 100vw;
+          height: 100vh;
+          background-color: var(--primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          h2 {
+            padding: 0 2%;
+            text-align: center;
+
+            p {
+              font-size: 1rem;
+              color: var(--background);
+            }
+          }
+        }
+
+        @media (min-width:750px) {
+          .hero h2 p{
+            font-size: 3rem;
+          }
+
+          & > h1{
+            padding: 4em 0 0;
+          }
+        }
+      }
+    }
+  }
+}

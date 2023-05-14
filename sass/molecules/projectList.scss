@@ -1,0 +1,117 @@
+.projects-list,
+.navigation {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+
+  .project {
+    width: 96%;
+    position: relative;
+    flex: 0 0 auto;
+    margin: 2% 2% 0;
+
+    a {
+      max-width: 100%;
+      width: 100%;
+      color: var(--background);
+      text-align: center;
+
+      &.full-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        background: transparent;
+      }
+
+      img {
+        max-width: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      &.date {
+        right: 100%;
+      }
+
+      &.tags {
+        left: 10px;
+        z-index: 3;
+
+        .tag {
+          background: var(--background);
+          border-radius: 25px;
+          padding: 0 10px;
+          z-index: 3;
+        }
+      }
+
+      &.date,
+      &.tags {
+        position: absolute;
+        top: 10px;
+        margin: 0;
+        opacity: 0;
+        color: var(--background);
+      }
+    }
+
+    h3,
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: var(--secondary-lighter);
+      transition: var(--transition);
+      opacity: 0;
+    }
+
+    &:hover {
+      p,
+      &::before {
+        opacity: 1;
+      }
+
+      h3 {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        margin: 0;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .projects-list,
+  .navigation {
+    .project {
+      width: 46%;
+
+    }
+  }
+}
+
+@media (min-width:950px) {
+  .navigation,
+  .projects-list {
+    .project {
+      width: 29%;
+    }
+  }
+}

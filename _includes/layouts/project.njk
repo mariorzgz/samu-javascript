@@ -4,25 +4,6 @@ section: project
 ---
 
 <article>
-
-    {% if tags %}
-    <p class="tags">
-    {% for tag in tags %}
-      {%- if tag != "project" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
-    </p>
-  {% endif %}
-
-  <h1>{{ title }}</h1>
-  <p>
-    <small>
-      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
-    </small>
-  </p>
-
   <div class="gallery">
 
     {% if images %}
@@ -35,7 +16,31 @@ section: project
 
   </div>
 
-  {{ layoutContent | safe }}
+  <div class="content">
+
+    {% if tags %}
+    <p class="tags">
+      {% for tag in tags %}
+        {%- if tag != "project" -%}
+          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+          <a href="{{ tagUrl | url }}" rel="tag" class="tag {{ tag }}">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    </p>
+    {% endif %}
+
+
+    <h1>{{ title }}</h1>
+
+    <p>
+      <small>
+        <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
+      </small>
+    </p>
+
+    {{ layoutContent | safe }}
+
+  </div>
 
 </article>
 
@@ -48,11 +53,11 @@ section: project
 
 {% if previousProject %}
 
-  <article{% if previousProject.url == url %} data-current="current item"{% endif %} class="project previousProject">
+  <article {% if previousProject.url == url %} data-current="current item"{% endif %} class="project previousProject">
 
       {% if previousProject.data.thumbnail %}
         <a href="{{ previousProject.url | url }}">
-          <img src={{ previousProject.data.thumbnail }}>
+          <img src="{{ previousProject.data.thumbnail }}">
         </a>
       {% endif %}
 
@@ -92,11 +97,11 @@ section: project
 
 {% if nextProject %}
 
-  <article{% if nextProject.url == url %} data-current="current item"{% endif %} class="project nextProject">
+  <article {% if nextProject.url == url %} data-current="current item"{% endif %} class="project nextProject">
 
       {% if nextProject.data.thumbnail %}
         <a href="{{ nextProject.url | url }}">
-          <img src={{ nextProject.data.thumbnail }}>
+          <img src="{{ nextProject.data.thumbnail }}">
         </a>
       {% endif %}
 
