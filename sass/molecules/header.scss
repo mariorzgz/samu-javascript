@@ -15,10 +15,11 @@ header {
     place-self: center;
     position: relative;
     z-index: 10;
-    a {
+    #logo {
       font-family: karrik;
       font-size: 1rem;
       font-weight: normal;
+      color: var(--primary);
     }
   }
 
@@ -38,6 +39,11 @@ header {
 
       li {
         list-style-type: none;
+
+        a {
+          font-size: .8rem;
+          color: var(--primary);
+        }
       }
     }
   }
@@ -48,11 +54,12 @@ header {
     background: transparent;
 
     .logo-container {
-      a {
+      #logo {
         font-size: 1.6rem;
         font-weight: 600;
       }
     }
+
     nav {
       ul {
         li {

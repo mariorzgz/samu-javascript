@@ -1,0 +1,35 @@
+body {
+  &.about {
+    background: var(--primary);
+
+    header {
+      #logo {
+        color: var(--background);
+      }
+      nav {
+        ul {
+          li {
+            a {
+              color: var(--background);
+            }
+          }
+        }
+      }
+    }
+
+    h1 {
+      display: none;
+    }
+
+    main {
+      p {
+        color: var(--background);
+      }
+    }
+
+    footer {
+      background-color: var(--background);
+      color: var(--primary-lighter);
+    }
+  }
+}

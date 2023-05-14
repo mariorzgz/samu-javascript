@@ -4,6 +4,15 @@ body {
       #logo {
         color: var(--background);
       }
+      nav {
+        ul {
+          li {
+            a {
+              color: var(--background);
+            }
+          }
+        }
+      }
     }
 
     main {
@@ -30,10 +39,6 @@ body {
         @media (min-width:750px) {
           .hero h2 p{
             font-size: 3rem;
-          }
-
-          & > h1{
-            padding: 4em 0 0;
           }
         }
       }
