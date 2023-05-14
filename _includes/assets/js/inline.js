@@ -11,15 +11,15 @@ window.onscroll = function() {
 
 function color(main, heroHeight, navElements) {
   if ((document.body.scrollTop >  heroHeight || document.documentElement.scrollTop > heroHeight) && (main.classList.contains("home"))){
-    document.querySelector('header em a').classList.remove("light");
-    document.querySelector('header em a').classList.add("dark");
+    document.querySelector('#logo').classList.remove("light");
+    document.querySelector('#logo').classList.add("dark");
     navElements.forEach(navElement => {
       navElement.classList.remove("light");
       navElement.classList.add("dark");
     });
   } else {
-    document.querySelector('header em a').classList.add("light");
-    document.querySelector('header em a').classList.remove("dark");
+    document.querySelector('#logo').classList.add("light");
+    document.querySelector('#logo').classList.remove("dark");
     navElements.forEach(navElement => {
       navElement.classList.add("light");
       navElement.classList.remove("dark");

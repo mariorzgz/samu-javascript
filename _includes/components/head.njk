@@ -6,11 +6,7 @@
   <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" crossorigin="anonymous"></script>
 
-  {% set css %}
-    {% include "assets/css/inline.css" %}
-  {% endset %}
-
-  <style>{{ css | cssmin | safe }}</style>
+  <link rel="stylesheet" href="/css/style.css">
 
   {% set js %}
     {% include "assets/js/inline.js" %}

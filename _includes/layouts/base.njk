@@ -6,10 +6,22 @@
 	<body class="{{ section }} {% for tag in tags %}{%if tag != section%}{{ tag }} {% endif %}{% endfor %}">
 
 		<header>
-			<em>
+			<div class="logo-container">
 				<a href="{{ '/' | url }}" id="logo">{{ metadata.title }}</a>
-			</em>
-			{% include "components/nav.njk" %}
+			</div>
+
+			<nav>
+        {% set navPages = collections.all | eleventyNavigation %}
+        <ul>
+        {%- for entry in navPages %}
+          {% if entry.visible %}
+            <li>
+              <a href="{{ entry.url | url }}"{% if entry.url == page.url %} data-current="current item"{% endif %}>{{ entry.title }}</a>
+            </li>
+          {% endif %}
+        {%- endfor %}
+        </ul>
+    </nav>
 		</header>
 
 		<main class="{{ section }} {% for tag in tags %}{%if tag != section%}{{ tag }} {% endif %}{% endfor %}">

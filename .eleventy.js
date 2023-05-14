@@ -1,5 +1,4 @@
 const { DateTime } = require("luxon");
-const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -28,9 +27,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("machineDate", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("yyyy-MM-dd");
   });
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
   eleventyConfig.addFilter("jsmin", function(code) {
     let minified = UglifyJS.minify(code);
     if (minified.error) {
@@ -38,6 +34,10 @@ module.exports = function(eleventyConfig) {
       return code;
     }
     return minified.code;
+  });
+
+  eleventyConfig.setBrowserSyncConfig({
+    files: './_site/css/**/*.css'
   });
 
   // Minify HTML output
@@ -57,7 +57,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin/");
-  eleventyConfig.addPassthroughCopy("_includes/assets/css/inline.css");
   eleventyConfig.addPassthroughCopy("static/js/app.js");
   eleventyConfig.addPassthroughCopy("static/fonts/Karrik-Regular.woff");
 
@@ -91,8 +90,6 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: "njk",
     dir: {
       input: ".",
-      includes: "_includes",
-      data: "_data",
       output: "_site"
     }
   };
