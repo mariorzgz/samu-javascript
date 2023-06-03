@@ -12,4 +12,4 @@ eleventyNavigation:
   order: 1
   visible: true
 ---
-M﻿y name is Samu Gambin and i am very cute.
+;)
